@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>React Testing</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudfare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="content"></div>
+    <script type="text/jsx">
+
+        var AniComponent = React.createClass({
+            doSomething: function(){
+                alert("This text says "+ this.props.children);
+            },
+            render: function(){
+                return(
+                        <div>
+                            <h1></h1>
+                            <h3>{this.props.user}</h3>
+                            <a onClick={this.doSomething} href="#" >Click Me!</a>
+                        </div>
+                );
+            }
+
+        });
+
+        var HelloComponent = React.createClass({
+            render: function(){
+                return(
+                        <h1>Hello World</h1>
+                );
+            }
+
+        });
+
+        React.render( <div> <HelloComponent />
+                            <AniComponent user="Anitha" user="Ani">She is Awesome</AniComponent>
+                            <AniComponent user="Krishna" >He is Intellectual person</AniComponent>
+                      </div>,
+                     document.getElementById("content"));
+
+    </script>
+</body>
+</html>
